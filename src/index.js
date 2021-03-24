@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from 'firebase';
+import { Provider } from 'react-redux';
+import store from './store'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAyywBzxEgPesw2EAonRU6Yqg0SRssGyB0",
+  authDomain: "web-messenger-bd568.firebaseapp.com",
+  projectId: "web-messenger-bd568",
+  storageBucket: "web-messenger-bd568.appspot.com",
+  messagingSenderId: "932001637876",
+  appId: "1:932001637876:web:14dd05259bc101de4045a1",
+  measurementId: "G-CC536QB2EC"
+};
+
+firebase.initializeApp(firebaseConfig);
+window.store=store;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
