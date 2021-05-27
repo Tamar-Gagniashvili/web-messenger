@@ -11,7 +11,6 @@ const initialState = {
 
 
  const reducer = (state=initialState, action ) => {
-    console.log(action);
     switch(action.type){
         case `${authConstanst.USER_LOGIN}_REQUEST`:
             state={
@@ -32,6 +31,19 @@ const initialState = {
                 ...state,
                 authenticated: false,
                 authenticating: false,
+                error: action.payload.error
+            }
+            break;
+        case `${authConstanst.USER_LOGOUT}_REQUEST`:
+            break;
+        case `${authConstanst.USER_LOGOUT}_SUCCESS`:
+            state={
+                ...initialState
+            }
+            break;
+        case `${authConstanst.USER_LOGOUT}_FAILURE`:
+            state={
+                ...state,
                 error: action.payload.error
             }
             break;

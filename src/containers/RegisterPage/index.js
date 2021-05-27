@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import Card from '../../components/UI/Card';
 import { signup } from '../../actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 /**
 * @author
@@ -16,8 +17,10 @@ const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch=useDispatch();
-
+  const auth = useSelector(state => state.auth)
   const registerUser = (e) => {
+
+
 
     e.preventDefault();
     const user= {
@@ -25,6 +28,11 @@ const Register = (props) => {
     }
     
     dispatch(signup(user))
+  }
+
+  
+  if(auth.authenticated){
+    return <Redirect to={`/`} />
   }
 
   return (

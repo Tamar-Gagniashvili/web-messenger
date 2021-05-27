@@ -1,5 +1,35 @@
 .loginContainer, .registerContainer{
-    width: 400px;
+    width: 40%;
     position: relative;
     margin: 50px auto;
+}
+
+.card{
+    background-color: #2e90a4;
+    border-radius: 15px;
+}
+.card form{
+    text-align: center;
+}
+
+.card form input{
+    width: 60%;
+    height: 4vh;
+    margin-top: 7%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card form button{
+    width: 50%;
+    height: 4vh;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+h2{
+    margin: 3% auto;
 }
